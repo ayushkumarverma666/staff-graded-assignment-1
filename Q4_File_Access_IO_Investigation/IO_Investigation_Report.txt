@@ -1,0 +1,58 @@
+IO INVESTIGATION REPORT
+=======================
+
+1. Open Files Identified
+
+Command:
+lsof logfile.txt
+
+Observation:
+The command checks whether the file is currently open by any running process. No active process was using the file during the experiment.
+
+--------------------------------------------------
+
+2. File Descriptor Observations
+
+Command:
+ls -l /dev/fd
+
+Observation:
+Linux/macOS uses file descriptors to manage file input and output. Standard descriptors are:
+0 - Standard Input (stdin)
+1 - Standard Output (stdout)
+2 - Standard Error (stderr)
+
+--------------------------------------------------
+
+3. Output and Error Redirection
+
+Commands:
+echo "This is standard output" > output.txt
+ls nonexistentfile 2> error.txt
+
+Observation:
+Standard output was successfully redirected to output.txt.
+Error messages were redirected separately to error.txt.
+
+--------------------------------------------------
+
+4. Resource Limits
+
+Command:
+ulimit -a
+
+Observation:
+The system displayed resource limits such as maximum file descriptors, stack size, CPU time, and memory limits for the current shell.
+
+--------------------------------------------------
+
+5. Linux File I/O Management
+
+Observation:
+Linux performs file I/O using file descriptors managed by the kernel. Standard input, output, and error are represented by descriptors 0, 1, and 2. Output redirection (>) stores normal output into a file, while error redirection (2>) stores error messages separately.
+
+--------------------------------------------------
+
+Conclusion
+
+The investigation demonstrated Linux file I/O management, file descriptors, output/error redirection, and resource limits. These mechanisms help applications efficiently handle files and input/output operations.
