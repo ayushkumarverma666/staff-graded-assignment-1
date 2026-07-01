@@ -1,0 +1,74 @@
+SECURE PROJECT WORKSPACE REPORT
+==============================
+
+1. Directory Structure Created
+
+Commands:
+mkdir ProjectWorkspace
+mkdir docs src backup
+touch docs/readme.txt
+
+Observation:
+A project workspace was created with three directories: docs, src, and backup. A sample file named readme.txt was created inside the docs directory.
+
+--------------------------------------------------
+
+2. File Permissions Before Modification
+
+Command:
+ls -l
+
+Output:
+drwxr-xr-x backup
+drwxr-xr-x docs
+drwxr-xr-x src
+
+Explanation:
+The directories were created with the default permissions assigned by the system.
+
+--------------------------------------------------
+
+3. File Permissions After Modification
+
+Command:
+chmod 700 docs
+ls -ld docs
+
+Output:
+drwx------ docs
+
+Explanation:
+The docs directory is now accessible only by the owner. Other users cannot read, write, or execute files inside this directory.
+
+--------------------------------------------------
+
+4. Ownership Details
+
+Command:
+ls -ld docs src backup
+
+Output:
+Owner: ayushkumarverma
+Group: staff
+
+Explanation:
+All project directories are owned by the current user and belong to the staff group.
+
+--------------------------------------------------
+
+5. Umask Value
+
+Command:
+umask
+
+Output:
+022
+
+Explanation:
+The default umask value is 022, which removes write permissions for the group and others when new files and directories are created.
+
+--------------------------------------------------
+
+Conclusion
+
+Linux file permissions and the umask setting help protect project data by restricting unauthorized access while allowing the owner full control.
