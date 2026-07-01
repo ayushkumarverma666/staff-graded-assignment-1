@@ -1,0 +1,53 @@
+LINUX ENVIRONMENT VERIFICATION REPORT
+=======================================
+
+1. Username and Groups
+------------------------
+Command: whoami
+Output: ayushkumarverma
+
+Command: id
+Output: uid=501(ayushkumarverma) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),701(com.apple.sharepoint.group.1),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh),400(com.apple.access_remote_ae)
+
+Command: groups
+Output: staff everyone localaccounts _appserverusr admin _appserveradm _lpadmin com.apple.sharepoint.group.1 _appstore _lpoperator _developer _analyticsusers com.apple.access_ftp com.apple.access_screensharing com.apple.access_ssh com.apple.access_remote_ae
+
+Explanation: My username is ayushkumarverma with UID 501, belonging primarily to the "staff" group (GID 20). The account is also part of the "admin" group, which grants elevated system privileges, along with several Apple-specific service groups.
+
+2. Current Shell
+------------------
+Command: echo $SHELL
+Output: /bin/zsh
+
+Explanation: My default login shell is zsh (Z shell), located at /bin/zsh. This is the default shell on modern macOS systems.
+
+3. Current Working Directory
+------------------------------
+Command: pwd
+Output: /Users/ayushkumarverma
+
+Explanation: The current working directory is my home directory, /Users/ayushkumarverma, which is the default location a user lands in after logging into a Mac.
+
+4. List of Files and Directories in Workspace
+------------------------------------------------
+Command: ls -la
+Output: (see screenshot — full listing of home directory contents, including hidden config files like .zshrc, .gitconfig, .cache, and visible folders like Desktop, Documents, Downloads, Library, etc.)
+
+Explanation: The -la flags show all files including hidden ones (starting with a dot) along with detailed permissions, ownership, size, and modification dates. My home directory contains a mix of hidden configuration files for tools like zsh, git, and various development environments, plus standard user folders.
+
+5. Network Connectivity Verification
+---------------------------------------
+Command: ping -c 4 google.com
+Output:
+PING google.com (142.250.122.102): 56 data bytes
+64 bytes from 142.250.122.102: icmp_seq=0 ttl=106 time=46.433 ms
+64 bytes from 142.250.122.102: icmp_seq=1 ttl=106 time=53.541 ms
+64 bytes from 142.250.122.102: icmp_seq=2 ttl=106 time=53.430 ms
+64 bytes from 142.250.122.102: icmp_seq=3 ttl=106 time=53.430 ms
+
+--- google.com ping statistics ---
+4 packets transmitted, 4 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 46.433/51.296/53.541/2.893 ms
+
+Explanation: All 4 packets sent to google.com were successfully received with 0.0% packet loss, confirming active internet connectivity. Average round-trip time was approximately 51ms,
+indicating a stable connection.
