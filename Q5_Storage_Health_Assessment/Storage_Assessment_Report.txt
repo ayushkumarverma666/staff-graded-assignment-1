@@ -1,0 +1,68 @@
+STORAGE HEALTH ASSESSMENT REPORT
+================================
+
+1. Available Storage Devices
+
+Command:
+diskutil list
+
+Observation:
+The system contains an internal physical SSD using the GUID Partition Scheme. The primary storage is organized using the Apple File System (APFS) with separate containers for the operating system, recovery environment, data volume, and virtual memory. Additional mounted disk images are also present for applications.
+
+--------------------------------------------------
+
+2. Mounted File Systems
+
+Command:
+mount
+
+Observation:
+Multiple APFS file systems are mounted, including the root filesystem (/), Data, Preboot, Recovery, Update, VM, and other system volumes. Temporary and virtual file systems such as devfs and autofs are also mounted for device management and automatic filesystem mounting.
+
+--------------------------------------------------
+
+3. Disk Usage Statistics
+
+Command:
+df -h
+
+Observation:
+The disk usage output shows that the main APFS Data volume is approximately 67% utilized, leaving sufficient free space for normal operation. Most system volumes have very low storage usage. Overall disk utilization is healthy and no partition is critically full.
+
+--------------------------------------------------
+
+4. Inode Utilization
+
+Command:
+df -i
+
+Observation:
+The inode usage is very low, indicating that plenty of inodes remain available. No inode exhaustion or filesystem limitations are observed.
+
+--------------------------------------------------
+
+5. Storage Health Observations
+
+• Storage devices are detected correctly.
+• APFS containers and volumes are mounted successfully.
+• Disk usage is within healthy limits.
+• Sufficient free storage space is available.
+• No storage-related errors were observed.
+• Inode availability is adequate for normal filesystem operations.
+
+--------------------------------------------------
+
+6. Recommendations
+
+• Monitor disk usage regularly using df -h.
+• Remove unnecessary files to free storage space.
+• Perform regular backups of important data.
+• Maintain at least 15–20% free disk space.
+• Periodically monitor inode usage.
+• Verify storage health regularly using system utilities.
+
+--------------------------------------------------
+
+Conclusion
+
+The storage subsystem is functioning normally. All storage devices and mounted file systems are operating correctly. Disk utilization and inode availability indicate that the system is healthy and suitable for application deployment without any immediate storage concerns.
